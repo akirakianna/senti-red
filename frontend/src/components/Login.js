@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { StyledForm } from './StyledForm'
+import { StyledH2 } from './StyledH2'
 import { BackgroundVideo } from './BackgroundVideo'
 
 const schema = Yup.object().shape({
@@ -43,15 +44,7 @@ const Login = () => {
 
   return (
     <main style={{ overflow: 'hidden' }}>
-      <h2 style={{
-        fontSize: '4rem',
-        color: 'white',
-        margin: '0 auto',
-        textAlign: 'center',
-        lineHeight: '30vh',
-        letterSpacing: '0.1rem',
-        fontFamily: '"Nanum Myeongjo", serif'
-      }}>LOG &nbsp;IN</h2>
+      <StyledH2>LOG &nbsp;IN</StyledH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <TextField
           name="email"

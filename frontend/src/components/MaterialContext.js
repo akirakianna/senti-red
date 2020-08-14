@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { ThemeContext as StyleContext } from 'styled-components'
 
+
 export const MaterialProvider = ({ children }) => {
 
   const styleTheme = useContext(StyleContext)

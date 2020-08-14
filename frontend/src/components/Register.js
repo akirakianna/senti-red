@@ -34,6 +34,20 @@ const StyledForm = styled.form`
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  z-index: 2;
+`
+export const StyledH2 = styled.h2`
+  font-size: 4rem;
+  color: white;
+  line-height: 15vh;
+  letter-spacing: 0.1rem;
+  font-family: "Nanum Myeongjo", serif;
+  mix-blend-mode: difference;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: max-content;
 `
 
 const Register = () => {
@@ -56,15 +70,7 @@ const Register = () => {
 
   return (
     <main>
-      <h2 style={{
-        fontSize: '4rem',
-        color: 'white',
-        margin: '0 auto',
-        textAlign: 'center',
-        lineHeight: '30vh',
-        letterSpacing: '0.1rem',
-        fontFamily: '"Nanum Myeongjo", serif'
-      }}>REGISTER</h2>
+      <StyledH2>REGISTER</StyledH2>
       <StyledForm onSubmit={handleSubmit(onSubmit)} >
         <TextField
           name="username"
