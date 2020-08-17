@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { StyledForm } from './StyledForm'
-import { StyledH2 } from './StyledH2'
+import { StyledH2 } from './Register'
 import { BackgroundVideo } from './BackgroundVideo'
 
 const schema = Yup.object().shape({

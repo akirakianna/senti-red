@@ -19,7 +19,7 @@ z-index: 1;
 export const BackgroundVideo = () => {
 
   return (
-    <Video autoPlay muted loop>
+    <Video autoPlay muted loop playsInline>
       <source src={rorschach} type="video/mp4" />
     </Video>
   )

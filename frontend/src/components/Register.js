@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { BackgroundVideo } from './BackgroundVideo'
 import styled from 'styled-components'
-// import { StyledForm } from './StyledForm'
+
 
 const schema = Yup.object().shape({
   username: Yup.string().required('Please enter a username'),
