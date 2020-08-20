@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { BackgroundVideo } from './BackgroundVideo'
+import { StyledForm } from './StyledForm'
 import styled from 'styled-components'
 
 
@@ -22,20 +23,21 @@ const schema = Yup.object().shape({
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
 })
 
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 60vh;
-  min-width: 300px;
-  justify-content: space-around;  
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  z-index: 2;
-`
+// const StyledForm = styled.form`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   min-height: 60vh;
+//   min-width: 300px;
+//   justify-content: space-around;  
+//   position: absolute;
+//   top: 60%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   color: white;
+//   z-index: 2;
+// `
+
 export const StyledH2 = styled.h2`
   font-size: 4rem;
   color: white;

@@ -95,6 +95,7 @@ def get_one(reddit_id):
 @secure_route
 def get_redditor_avatars(reddit_id):
     post = Post.query.filter_by(reddit_id=reddit_id).first()
+    #! Using Praw for avatar
     post.reddit_author_avatar = reddit.redditor(name=post.reddit_author).icon_img
     for comment in post.reddit_comments:
         comment.reddit_author_avatar = reddit.redditor(name=comment.reddit_author).icon_img

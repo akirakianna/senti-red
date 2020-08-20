@@ -11,7 +11,6 @@ class SentiRedditComment(db.Model, BaseModel):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
     
-
     sentiment = db.relationship(
         'Sentiment',
         uselist=False,
