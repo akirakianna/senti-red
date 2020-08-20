@@ -10,7 +10,7 @@ For my final project at GA, I **worked collaboratively** to create a **full-stac
 
 SentiRed is an application which uses machine learning/natural language analysis to track a user's sentiment score based on what they are reading and creates a dynamic Emotional UI from this.
 
-[REWORD] Our final concept came from an amalgamation of our ideas. I had been researching Emotional UI and was keen to incorporate it. Alex wanted to implement the Google Cloud Natural Language API, as he had been reasearching news algorithms and how they trigger an emotional response.
+Our final concept came from an amalgamation of our ideas. I had been researching Emotional UI and was keen to incorporate it. Alex wanted to implement the Google Cloud Natural Language API, as he had been reasearching news algorithms and how they trigger an emotional response.
 
 You can find our project online [here](https://senti-red.herokuapp.com/#/).
 
@@ -41,7 +41,7 @@ You can find our project online [here](https://senti-red.herokuapp.com/#/).
 ## Technologies Used
 
 * HTML
-* CSS in JS (styled components)
+* CSS in JS (styled-components)
 * React.js
 * Moment.js
 * Python
@@ -102,7 +102,9 @@ The Reddit API would be returning the main chunk of our app's data, so we wanted
 
 We designed our app mobile first using Figma, as it allows you to quickly draft up an MVP of your product:
 
+
 ![Figma Mobile Wireframes](./frontend/src/screenshots/SentiRedditMobileWireframe.png)
+
 
 #### Entity Relationship Diagram
 
@@ -180,7 +182,7 @@ used the following function:*
 
 We calculated this aggregate sentiment score by writing a reducer function: 
 
-```py
+```
 def calculate_user_aggregate_sentiment(user):
     def sentiment_sum(a, b):
         if getattr(a, 'score', None):
@@ -203,7 +205,7 @@ def calculate_user_aggregate_sentiment(user):
 
 Which reduces all of a user's sentiments that are stored in the user_sentiments join table:
 
-```py
+```
 user_sentiments = db.Table(
     'user_sentiments',
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
@@ -235,7 +237,7 @@ It has 3 main columns:
       - The score is the above values multipled together, a column we created to facilitate our end goal of being able to represent the sentiment in our UI. 
 
 
-```py
+```
 class Sentiment(db.Model, BaseModel):
 
     __tablename__ = 'sentiments'
@@ -256,7 +258,7 @@ It also has 3 additional columns, which we have limited to
 only contain the id of the post/comment to which the sentiment refers.
 On the respective tables, we define a sentiment column which links back to the sentiment model - e.g:
 
-```py
+```
 class SentiRedditComment(db.Model, BaseModel):
 
     __tablename__ = 'sentireddit_comments'
@@ -303,7 +305,7 @@ This is useful for working with a React front-end, as it helps us to access our 
 
 For (most of) our models we created a corresponding schema = e.g **UserSchema**:
 
-```py
+```
 class UserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 
     password = fields.String(required=True)
@@ -326,7 +328,7 @@ Our schemas include nested fields which are a feature of Marshmallow that repres
 
 We were able to simplify our models and schemas somewhat by using a *mixin*, as we had a couple of methods and properties that we wanted all of our models/schemas to be able to access:
 
-```py
+```
 class BaseModel:
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.now())
@@ -343,7 +345,7 @@ class BaseModel:
 ```
 By creating an *id*, *created_at* and *updated_at* column in here, meant we didn't have to include these every time we made a new model - we could just extend the Base Model:
 
-```py
+```
 class User(db.Model, BaseModel):
     __tablename__ = 'users'
 ```
@@ -557,7 +559,7 @@ def random_cage():
 * We ran in to our first major bug when using the python library from Google's Natural Language API documentation, wherein the request for language analysis would not return any data on my machine, it would just *hang* and not return any errors. However, it worked on Alex's machine - despite us having exactly the same setup and code. This problem is documented [here](https://github.com/googleapis/nodejs-language/issues/273) and [here](https://github.com/googleapis/google-cloud-node/issues/1955) without a clear resolution, so it seems it is a mystery bug with the library.
 We were able to resolve this by using Python's Requests Library and rewriting the function:
 
-```py
+```
 def fetch_sentiment(text):
     url = f'https://language.googleapis.com/v1beta2/documents:analyzeSentiment?key={api_key}'
     body = {
@@ -579,7 +581,7 @@ def fetch_sentiment(text):
 * Once our project was deployed via Heroku we experienced an unexpected issue with CORS which meant that our Reddit data wasn't being returned from the API.
 We fixed this by using PRAW to rewrite these API calls in the back-end:
 
-```py
+```
 @router.route('/home/<category>', methods=['GET'])
 def index(category):
     data = reddit.request('GET', f'https://oauth.reddit.com/{category}')
@@ -589,7 +591,7 @@ def index(category):
 So on the front-end, in our Home Component, we could just make a call to our back-end to retrieve the data:
 
 
-```js
+```
  useEffect(() => {
     setLoading(true)
     axios.get(`/api/home/${category}`, { headers: { 'Authorization': `Bearer ${token}` } })
