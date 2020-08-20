@@ -102,9 +102,7 @@ The Reddit API would be returning the main chunk of our app's data, so we wanted
 
 We designed our app mobile first using Figma, as it allows you to quickly draft up an MVP of your product:
 
-
 ![Figma Mobile Wireframes](./frontend/src/screenshots/SentiRedditMobileWireframe.png)
-
 
 #### Entity Relationship Diagram
 
