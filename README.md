@@ -81,7 +81,7 @@ We initially spent some time discussing our idea and how best to approach the bu
 - User's will have the option to favourite a post, as well as comment on a post (on the single post page).
 - User's will have their own account page, which will include their overall sentiment score, their favourited posts as well as their viewed posts.
 - Stretch goals
-     - D3 Data Visualisation
+     - D3 Data Visualisation.
      - Animation when certain emotional levels are reached.
      - Reset password link.
      
@@ -606,7 +606,7 @@ In the end, this improved our code's consistency as it meant all calls are now m
 
 ## Victories
 
-* Pair programming for the duration of a full-stack build was an interesting experience. While it was potentially the slower option, I feel like I learnt so much from working in this manner, as we were able to take our time over so many different components with quite complex logic. Compared to what I was expecting, we ran in to comparitively few problems/ issues whilst coding, and when we did it was much easier to debug. 
+* Pair programming for the duration of a full-stack build was an interesting experience. While it was potentially the slower option, I feel like I learnt so much from working in this manner, as we were able to take our time over so many different components with quite complex logic. Compared to what I was expecting, we ran in to comparitively few problems/issues whilst coding, and when we did it was much easier to debug. 
 
 * Utilising several new libraries for (what seemed to me) a complex build was a steep (but great!) learning curve. I quickly discovered the benefits of using libraries during the creation of applications with a limited time frame as they allow you to simplify your code base (PRAW) and create sleek design quickly (Material UI).
 
@@ -626,7 +626,7 @@ In the end, this improved our code's consistency as it meant all calls are now m
 ## Credit
 
 * [Google Cloud Natural Language API](https://cloud.google.com/natural-language/docs) for our sentiment analysis.
-* [Reddit API](https://www.reddit.com/dev/api/)
+* [Reddit API](https://www.reddit.com/dev/api/).
 * Alien SVGs are from [Flat Icon](https://www.flaticon.com/free-icons/alien).
 * Emoji Icons are from [Openmoji](https://openmoji.org/).
 * Random Nicholas Cage placeholder images from [Place Cage](https://www.placecage.com/).
